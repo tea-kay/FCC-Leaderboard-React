@@ -24,13 +24,16 @@ export default class App extends Component {
   fetchAllTimCampers() {
     return axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime');
   }
+  changeView(currentView) {
+    this.setState({ currentView });
+  }
 
   render() {
     return (
       <div>
-        <h2>Display Campers</h2>
-        <button className="btn btn-primary">Recent</button>
-        <button className="btn btn-primary">All Time</button>
+        <h2>{`Viewing Top ${this.state.currentView}`}</h2>
+        <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Recent</button>
+        <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
       </div>
     );
   }
