@@ -12,7 +12,7 @@ export default class App extends Component {
   }
   componentWillMount() {
     axios.all([this.fetchRecentCampers(), this.fetchAllTimCampers()])
-      .then(axios.spread(function(recentCampers, allTimeCampers) {
+      .then(axios.spread((recentCampers, allTimeCampers) => {
         this.setState({ recentCampers, allTimeCampers });
       }));
   }
@@ -25,7 +25,7 @@ export default class App extends Component {
     return axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime');
   }
   changeView(currentView) {
-    this.setState({ currentView });
+    this.setState({ currentView  });
   }
 
   render() {
