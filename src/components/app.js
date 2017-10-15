@@ -13,7 +13,9 @@ export default class App extends Component {
   componentWillMount() {
     axios.all([this.fetchRecentCampers(), this.fetchAllTimCampers()])
       .then(axios.spread((recentCampers, allTimeCampers) => {
-        this.setState({ recentCampers, allTimeCampers });
+        this.setState({
+          recentCampers: recentCampers.data,
+          allTimeCampers: allTimeCampers.data });
       }));
   }
 
