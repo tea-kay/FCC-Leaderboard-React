@@ -1,6 +1,13 @@
 import React from 'react';
 
+import CamperListItem from './camper_list_item.js';
+
 const CamperList = ({ campers }) => {
+
+  const Items = campers.map((camper, index) => {
+    return <CamperListItem key={index} camper={camper} number={index + 1}/>
+  })
+
   return (
     <table className="table table-striped">
       <thead>
@@ -12,7 +19,7 @@ const CamperList = ({ campers }) => {
         </tr>
       </thead>
       <tbody>
-
+        {Items}
       </tbody>
     </table>
   );

@@ -34,9 +34,12 @@ export default class App extends Component {
   }
 
   render() {
+    if (!this.state.recentCampers.length && !this.state.allTimeCampers.length) {
+      return <div>Loading...</div>;
+    }
     return (
       <div>
-        <h2>{`Viewing Top ${this.state.currentView}`}</h2>
+        <h2 className='top-header'>{`Viewing Top ${this.state.currentView}`}</h2>
         <button onClick={() => this.changeView('recentCampers')} className="btn btn-primary">Recent</button>
         <button onClick={() => this.changeView('allTimeCampers')} className="btn btn-primary">All Time</button>
         <CamperList campers={this.state[this.state.currentView]} />
