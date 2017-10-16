@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import MDSpinner from 'react-md-spinner';
 
 import CamperList from './camper_list.js';
 
@@ -35,7 +36,11 @@ export default class App extends Component {
 
   render() {
     if (!this.state.recentCampers.length && !this.state.allTimeCampers.length) {
-      return <div>Loading...</div>;
+      return (
+        <div className="container">
+          <MDSpinner className="spinner" size={100} />
+        </div>
+      );
     }
     return (
       <div>
