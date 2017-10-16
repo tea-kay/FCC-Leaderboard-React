@@ -2,16 +2,17 @@ import React from 'react';
 
 const CamperList = ({ campers }) => {
   return (
-    <table>
+    <table className="table table-striped">
       <thead>
         <tr>
           <th>#</th>
           <th>Username</th>
           <th>Last 30 Days</th>
           <th>All Time Points</th>
-        <tr>
+        </tr>
       </thead>
       <tbody>
+
       </tbody>
     </table>
   );
